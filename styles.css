@@ -1,3 +1,5 @@
+/*DOCUMENTO TODO*/
+
 * {
     margin: 0;
     padding: 0;
@@ -22,6 +24,47 @@ body {
     background-color: var(--maisEscuro);
     color: var(--claro);
 }
+
+.animar {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 2s, transform 2s;
+}
+
+.animar.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.laranja {
+    color: var(--secundaria);
+}
+
+.laranja-claro {
+    color: var(--primaria);
+}
+
+section {
+    margin-top: 10rem;
+}
+
+
+
+/*MENU DE NAVEGAÇÃO*/
 
 .navegacao {
     position: fixed;
@@ -99,6 +142,10 @@ body {
     height: auto;
 }
 
+
+
+/*INICIO*/
+
 .cabecalho {
     min-height: 100vh;
     display: flex;
@@ -123,24 +170,94 @@ body {
     margin-left: 300px;
 }
 
-.laranja {
-    color: var(--secundaria);
-}
-
-.laranja-claro {
-    color: var(--primaria);
-}
-
 h1 {
     font-size: 2.5rem;
     font-weight: bold;
-    margin: 20px;
+    margin: 30px;
 }
 
 .sub-titulo {
     font-size: 1.2rem;
     margin-right: 30px;
 }
+
+.letra-animada {
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.letra-animada:hover {
+    color: var(--secundaria);
+    transform: translateY(-2px) scale(1.1);
+}
+
+.loader {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  background: #FFF;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  transform: rotate(45deg) translate(30%, 40%);
+  background: #ff9371;
+  box-shadow: 32px -34px 0 5px #ff3d00;
+  animation: slide 2s infinite ease-in-out alternate;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff3d00;
+  transform: rotate(0deg);
+  transform-origin: 35px 145px;
+  animation: rotate 2s infinite ease-in-out;
+}
+
+@keyframes slide {
+  0% , 100% {
+    bottom: -35px
+  }
+
+  25% , 75% {
+    bottom: -2px
+  }
+
+  20% , 80% {
+    bottom: 2px
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-15deg)
+  }
+
+  25% , 75% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(25deg)
+  }
+}
+
+
+
+/*SOBRE E HABILIDADES*/
 
 .sobre-container {
     display: flex;
@@ -195,10 +312,14 @@ h1 {
     background-color: rgba(230, 124, 124, 0.1);
 }
 
+
+
+/*PROJETOS*/
+
 .projetos-caixa {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 1rem;
     margin: 0 auto;
     padding: 1.8rem;
 }
@@ -209,7 +330,7 @@ h1 {
     object-fit: cover;
 }
 
-.projetos-card {
+div.projetos-card {
     border-radius: 16px;
     border: 1px solid var(--vidro);
     backdrop-filter: blur(10px);
@@ -219,7 +340,7 @@ h1 {
     cursor: pointer;
 }
 
-.projetos-card:hover {
+div.projetos-card:hover {
     transform: translateY(-10px) scale(1.03);
 }
 
@@ -231,9 +352,42 @@ h1 {
     padding: 1.5rem;
 }
 
-section {
-    margin-top: 10rem;
+.btn-github {
+    cursor: pointer;
+    display: flex;
+    gap: 0.5rem;
+    border: none;
+
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 100px;
+    font-weight: 500;
+    place-content: center;
+
+    padding: 0.75rem 1rem;
+    font-size: 0.825rem;
+    line-height: 1rem;
+
+    margin: auto;
+    margin-top: 2rem;
+
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    color: white;
 }
+
+.btn-github:hover {
+    box-shadow:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+        inset 0 0 0 1px rgba(252, 232, 3, 0.08);
+    transform: translate(0, -0.25rem);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+/*CONTATO*/
 
 .formulario-contato {
     max-width: 600px;
@@ -279,13 +433,4 @@ section {
 
 .botao-form:hover {
     transform: translateY(-4px);
-}
-
-@keyframes flutuar {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
 }

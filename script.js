@@ -13,4 +13,20 @@ function enviar(event){
 
     window.open(url, '_blank')
 }
+
+const animarElements = document.querySelectorAll('.animar');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visivel');
+        } else {
+            entry.target.classList.remove('visivel');
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+animarElements.forEach(el => observer.observe(el));
  
