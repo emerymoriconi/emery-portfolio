@@ -20,6 +20,11 @@ html {
     --vidro: rgba(255, 255, 255, 0.1);
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 body {
     background-color: var(--maisEscuro);
     color: var(--claro);
@@ -433,4 +438,225 @@ div.projetos-card:hover {
 
 .botao-form:hover {
     transform: translateY(-4px);
+}
+
+
+
+/* MEDIA QUERIES PARA RESPONSIVIDADE */
+@media screen and (max-width: 1000px) {
+    
+    /* SEÇÃO INICIAL */
+    .cabecalho {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        min-height: 90vh;
+    }
+    
+    .foto-perfil {
+        width: 200px;
+        height: 260px;
+        margin-bottom: 2rem;
+        margin-top: 0;
+    }
+    
+    .descricao {
+        margin-left: 0;
+        align-items: center;
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        margin: 15px;
+    }
+    
+    .sub-titulo {
+        font-size: 1rem;
+        margin-right: 15px;
+    }
+    
+    .loader {
+        width: 48px;
+        height: 48px;
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    
+    /* NAVEGAÇÃO */
+    .menu {
+        gap: 1.5rem;
+        padding: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .menu-link {
+        font-size: 0.9rem;
+        padding: 0.3rem;
+    }
+    
+    .cv-but {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .cv-but button {
+        padding: 0.5em 1.5em;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    
+    /* SEÇÃO SOBRE */
+    .sobre, .projetos, .contato {
+        padding: 3rem 1rem;
+    }
+    
+    .sobre-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .sobre-descricao, .skills {
+        max-width: 100%;
+        padding: 1rem;
+    }
+    
+    .sobre-titulo, .hab-titulo, .projetos-titulo, .contato-titulo {
+        font-size: 2rem;
+    }
+    
+    .sobre-paragrafo {
+        padding: 1rem 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    /* HABILIDADES */
+    .hab-itens {
+        flex-direction: column;
+        padding: 1.5rem 0;
+        gap: 0.5rem;
+    }
+    
+    .hab-conj {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .elem {
+        padding: 0.8rem;
+        margin: 0.3rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    
+    /* PROJETOS */
+    .projetos-caixa {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .projetos-card {
+        max-width: 100%;
+    }
+    
+    .projeto-imagem {
+        height: 180px;
+    }
+    
+    .desc-proj {
+        padding: 1rem;
+    }
+    
+    .info-projetos {
+        font-size: 1.1rem;
+    }
+    
+    .paragrafo-projetos {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .btn-github {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.75rem;
+        margin-top: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    
+    /* CONTATO */
+    .formulario-contato {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .campo-form {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .botao-form {
+        padding: 0.8rem 1.5rem;
+        font-size: 16px;
+    }
+    
+    .grupo-form {
+        margin-bottom: 1rem;
+    }
+}
+
+/*PARA TELAS MENORES AINDA*/
+@media screen and (max-width: 480px) {
+    .menu {
+        gap: 1rem;
+        padding: 0.8rem;
+    }
+    
+    .foto-perfil {
+        width: 180px;
+        height: 230px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .sobre-titulo, .hab-titulo, .projetos-titulo, .contato-titulo {
+        font-size: 1.7rem;
+    }
+    
+    section {
+        margin-top: 6rem;
+    }
+}
+
+/* Garantir que containers não ultrapassem a tela */
+.sobre-container,
+.projetos-caixa,
+.formulario-contato {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Melhorar o toque em dispositivos móveis */
+.menu-link,
+.projetos-card,
+.botao-form,
+.btn-github {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
